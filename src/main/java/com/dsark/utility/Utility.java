@@ -6,6 +6,6 @@ package com.dsark.utility;
  */
 public class Utility {
     public static void main(String[] args) {
-        System.out.println("Test main");
+        System.out.println("Test commit");
     }
 }
