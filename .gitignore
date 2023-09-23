@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+/workbench.properties
+/mongodb/log/mongodata.log
+/logs/*
+/mongodb/bin/mongo.exe

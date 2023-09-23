@@ -4,7 +4,7 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ParentLogger implements MyLogger {
+public class ParentLogger implements InterLogger {
     private static final Logger logger = LogManager.getLogger(ParentLogger.class.getName());
 
 

@@ -4,14 +4,20 @@
         <Property name="LOG_PATTERN">
             %d{yyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n
         </Property>
+        <Property name="LOG_INFO_FILE">
+            custom.log
+        </Property>
+        <Property name="LOG_ERROR_FILE">
+            custom_exception.log
+        </Property>
     </Properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout disableAnsi="false"
                            pattern="%highlight{${LOG_PATTERN}}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=green, DEBUG=cyan bold, TRACE=blue}"/>
         </Console>
-        <RollingFile name="info" fileName="logs/custom.log"
-                     filePattern="logs/server-%d{yyyy-MM-dd}-%i.log">
+        <RollingFile name="info" fileName="logs/${LOG_INFO_FILE}"
+                     filePattern="logs/${LOG_INFO_FILE}-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout>
                 <Pattern>${LOG_PATTERN}</Pattern>
             </PatternLayout>
@@ -21,8 +27,8 @@
             <DefaultRolloverStrategy max="10"/>
             <LevelRangeFilter minLevel="WARN" maxLevel="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
         </RollingFile>
-        <RollingFile name="error" fileName="logs/custom_exception.log"
-                     filePattern="logs/server_exception-%d{yyyy-MM-dd}-%i.log">
+        <RollingFile name="error" fileName="logs/${LOG_ERROR_FILE}"
+                     filePattern="logs/${LOG_ERROR_FILE}-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout>
                 <Pattern>${LOG_PATTERN}</Pattern>
             </PatternLayout>

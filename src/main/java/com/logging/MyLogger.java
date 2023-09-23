@@ -1,9 +1,22 @@
 package com.logging;
 
-public interface MyLogger {
+public class MyLogger {
 
-    void info(Object obj);
-    void error(Object obj);
-    void error(Object obj, Throwable e);
-    void warn(Object obj);
+    private static final InterLogger logger = new ParentLogger();
+
+    public static void info(Object message) {
+        logger.info(message);
+    }
+
+    public static void error(Object error) {
+        logger.error(error);
+    }
+
+    public static void error(Object error, Throwable throwable) {
+        logger.error(error, throwable);
+    }
+
+    public static void warn(Object warning) {
+        logger.warn(warning);
+    }
 }
